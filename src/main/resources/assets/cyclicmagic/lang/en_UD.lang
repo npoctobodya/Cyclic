@@ -738,7 +738,8 @@ tile.entity_detector.rangeyup=+ ⅄
 tile.entity_detector.rangezdown=- Z
 tile.entity_detector.rangezup=+ Z
 tile.entity_detector.tooltip=='>'< puɐ ʇᴉɯᴉꞁ ǝɹnᵷᴉɟuoɔ 'ǝuoʇspǝɹ ʇndʇno puɐ sǝdʎʇ ʎʇᴉʇuǝ ʇɔǝʇǝᗡ
-tile.exp_pylon.full=ꞁꞁnɟ ᵷuᴉʇʇǝᵷ s,ʇI
+tile.exp_pylon.full=ꞁꞁnɟ s,ʇI
+tile.sprinkler.full=ꞁꞁnɟ s,ʇI
 tile.exp_pylon.guide=˙ʎꞁʇɔǝɹᴉp ǝɔuǝᴉɹǝdxǝ ʇᴉsodǝp osꞁɐ uɐɔ no⅄  ˙ɹǝʇɐꞁ ɯǝɥʇ ǝꞁʇʇoq ɹo ǝsɐǝꞁǝɹ uǝɥʇ 'sqɹo ԀX ʎqɹɐǝu ʇɔǝꞁꞁoƆ
 tile.exp_pylon.name=uoꞁʎԀ ǝɔuǝᴉɹǝdxƎ
 tile.exp_pylon.notenough=ǝɔuǝᴉɹǝdxǝ ɥᵷnouǝ ʇoN

@@ -25,6 +25,7 @@ package com.lothrazar.cyclicmagic.block.sprinkler;
 
 import com.lothrazar.cyclicmagic.IContent;
 import com.lothrazar.cyclicmagic.block.core.BlockBaseHasTile;
+import com.lothrazar.cyclicmagic.block.core.IBlockHasTESR;
 import com.lothrazar.cyclicmagic.data.IHasRecipe;
 import com.lothrazar.cyclicmagic.guide.GuideCategory;
 import com.lothrazar.cyclicmagic.registry.BlockRegistry;
@@ -46,26 +47,27 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSprinkler extends BlockBaseHasTile implements IHasRecipe, IContent {
+public class BlockSprinklerAnim extends BlockBaseHasTile implements IBlockHasTESR, IHasRecipe, IContent {
 
-  static final double BOUNDS = 0.0625;
-  protected static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(BOUNDS, 0, BOUNDS, 1.0D - BOUNDS, 0.5D, 1.0D - BOUNDS);
-  private final String name = "sprinkler";
+  private final String name = "sprinkler_animated";
 
-  public BlockSprinkler() {
+  public BlockSprinklerAnim() {
     super(Material.IRON);
     this.setTranslucent();
   }
 
   @Override
   public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-    return AABB_BOTTOM_HALF;
+    return BlockSprinkler.AABB_BOTTOM_HALF;
   }
 
   @Override
   public TileEntity createTileEntity(World worldIn, IBlockState state) {
-    return new TileSprinkler();
+    return new TileSprinklerAnim();
   }
 
   @Override
@@ -74,8 +76,14 @@ public class BlockSprinkler extends BlockBaseHasTile implements IHasRecipe, ICon
   }
 
   @Override
+  @SideOnly(Side.CLIENT)
+  public void initModel() {
+    ClientRegistry.bindTileEntitySpecialRenderer(TileSprinklerAnim.class, new SprinklerTESR<TileSprinklerAnim>(this));
+  }
+
+  @Override
   public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-    TileSprinkler te = (TileSprinkler) world.getTileEntity(pos);
+    TileSprinklerAnim te = (TileSprinklerAnim) world.getTileEntity(pos);
     if (te.isRunning()) { //inform player water is needed
       UtilChat.sendStatusMessage(player, UtilChat.lang("tile.sprinkler.full"));
     }
@@ -93,7 +101,7 @@ public class BlockSprinkler extends BlockBaseHasTile implements IHasRecipe, ICon
   @Override
   public void register() {
     BlockRegistry.registerBlock(this, getContentName(), GuideCategory.BLOCK);
-    BlockRegistry.registerTileEntity(TileSprinkler.class, getContentName() + "_te");
+    BlockRegistry.registerTileEntity(TileSprinklerAnim.class, getContentName() + "_te");
   }
 
   private boolean enabled;
@@ -105,15 +113,15 @@ public class BlockSprinkler extends BlockBaseHasTile implements IHasRecipe, ICon
 
   @Override
   public void syncConfig(Configuration config) {
-    enabled = config.getBoolean("Sprinkler", Const.ConfigCategory.content, true, Const.ConfigCategory.contentDefaultText);
+    enabled = config.getBoolean(this.name, Const.ConfigCategory.content, true, Const.ConfigCategory.contentDefaultText);
   }
 
   @Override
   public IRecipe addRecipe() {
     return RecipeRegistry.addShapedRecipe(new ItemStack(this),
         "bbb",
-        " o ",
-        "ggg",
+        " g ",
+        "gog",
         'b', Blocks.IRON_BARS,
         'o', Items.WATER_BUCKET,
         'g', Blocks.BONE_BLOCK);

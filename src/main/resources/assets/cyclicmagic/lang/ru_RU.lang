@@ -809,6 +809,7 @@ tile.entity_detector.rangezdown=Z -
 tile.entity_detector.rangezup=Z +
 tile.entity_detector.tooltip=Определяет разновидность существа и выдает сигнал редстоуна. Настраивается ограничение и параметры (>,<,=)
 tile.exp_pylon.full=Заполняется
+tile.sprinkler.full=Заполняется
 tile.exp_pylon.guide=Собирает сферы опыта неподалеку, после чего выбрасывает их обратно или разливает по бутылочкам. Вы также можете вносить опыт напрямую.
 tile.exp_pylon.name=Пилон опыта
 tile.exp_pylon.notenough=Не достаточно опыта

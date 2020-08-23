@@ -54,6 +54,7 @@ import com.lothrazar.cyclicmagic.block.screentype.BlockScreen;
 import com.lothrazar.cyclicmagic.block.solidifier.BlockSolidifier;
 import com.lothrazar.cyclicmagic.block.sound.BlockSoundPlayer;
 import com.lothrazar.cyclicmagic.block.sprinkler.BlockSprinkler;
+import com.lothrazar.cyclicmagic.block.sprinkler.BlockSprinklerAnim;
 import com.lothrazar.cyclicmagic.block.tank.BlockFluidTank;
 import com.lothrazar.cyclicmagic.block.trash.BlockTrash;
 import com.lothrazar.cyclicmagic.block.uncrafter.BlockUncrafting;
@@ -260,6 +261,7 @@ public class CyclicContent {
     content.add(new BlockAppleCrop());
     content.add(new BlockBeaconPowered());
     content.add(new BlockSprinkler());
+    content.add(new BlockSprinklerAnim());
     content.add(new BlockForester());
     packager = new BlockPackager();
     content.add(packager);

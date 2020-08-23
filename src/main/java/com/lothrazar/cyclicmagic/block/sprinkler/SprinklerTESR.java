@@ -44,14 +44,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.model.TRSRTransformation;
 
-public class SprinklerTESR<T extends TileSprinkler> extends BaseTESR<T> {
+public class SprinklerTESR<T extends TileSprinklerAnim> extends BaseTESR<T> {
 
   public SprinklerTESR(Block block) {
     super(block);
   }
 
   @Override
-  public void render(TileSprinkler te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
+  public void render(TileSprinklerAnim te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
     GlStateManager.pushAttrib();
     GlStateManager.pushMatrix();
     // Translate to the location of our tile entity

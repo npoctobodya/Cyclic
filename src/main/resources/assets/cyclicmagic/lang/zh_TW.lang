@@ -773,6 +773,7 @@ tile.entity_detector.rangey=Y軸方向的範圍
 tile.entity_detector.rangez=Z軸方向的範圍
 tile.entity_detector.tooltip=檢測實體類型並輸出紅石信號，紅石信號的輸出受被配置的>、<、=條件的限制
 tile.exp_pylon.full=它已經滿了
+tile.sprinkler.full=它已經滿了
 tile.exp_pylon.guide=收集附近的經驗球。收集到的經驗可以直接釋放或將其裝瓶。您也可以直接存入身上的經驗。
 tile.exp_pylon.name=經驗塔
 tile.exp_pylon.notenough=你沒有足夠的經驗
