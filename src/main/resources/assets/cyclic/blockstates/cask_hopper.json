@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"facing=north":	{ "model": "cyclic:block/cask_hopper"},
+		"facing=east":	{ "model": "cyclic:block/cask_hopper", "y": 90 },
+		"facing=south":	{ "model": "cyclic:block/cask_hopper" , "y": 180 },
+		"facing=west":	{ "model": "cyclic:block/cask_hopper", "y": 270 },
+		"facing=up":	{ "model": "cyclic:block/cask_hopper_up" },
+		"facing=down":	{ "model": "cyclic:block/cask_hopper_up", "x": 180 }
+    }
+}

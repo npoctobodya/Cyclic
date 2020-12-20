@@ -231,6 +231,8 @@ public class BlockRegistry {
   public static Block eye_redstone;
   @ObjectHolder(ModCyclic.MODID + ":eye_teleport")
   public static Block eye_teleport;
+  @ObjectHolder(ModCyclic.MODID + ":cask_hopper")
+  public static Block cask_hopper;
 
   @SubscribeEvent
   public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
@@ -259,6 +261,7 @@ public class BlockRegistry {
     r.register(new BlockMelter(Block.Properties.create(Material.ROCK)).setRegistryName("melter"));
     r.register(new BlockBattery(Block.Properties.create(Material.ROCK)).setRegistryName("battery"));
     r.register(new BlockCask(Block.Properties.create(Material.WOOD)).setRegistryName("cask"));
+    //    r.register(new BlockTankHopper(Block.Properties.create(Material.ROCK)).setRegistryName("cask_hopper"));
     r.register(new BlockCrate(Block.Properties.create(Material.WOOD)).setRegistryName("crate"));
     r.register(new BlockEye(Block.Properties.create(Material.WOOD)).setRegistryName("eye_redstone"));
     r.register(new BlockEyeTp(Block.Properties.create(Material.WOOD)).setRegistryName("eye_teleport"));

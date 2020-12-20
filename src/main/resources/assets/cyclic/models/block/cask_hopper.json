@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "particle": "cyclic:blocks/cask",
+        "down": "cyclic:blocks/cask",
+        "up": "cyclic:blocks/cask",
+        "north": "cyclic:blocks/cask_face",
+        "south": "cyclic:blocks/cask",
+        "west": "cyclic:blocks/cask",
+        "east": "cyclic:blocks/cask"
+    }
+}

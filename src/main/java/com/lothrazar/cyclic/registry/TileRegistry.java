@@ -44,6 +44,7 @@ import com.lothrazar.cyclic.block.soil.TileTerraPreta;
 import com.lothrazar.cyclic.block.solidifier.TileSolidifier;
 import com.lothrazar.cyclic.block.tank.TileTank;
 import com.lothrazar.cyclic.block.tankcask.TileCask;
+import com.lothrazar.cyclic.block.tankhopper.TileTankHopper;
 import com.lothrazar.cyclic.block.trash.TileTrash;
 import com.lothrazar.cyclic.block.uncrafter.TileUncraft;
 import com.lothrazar.cyclic.block.user.TileUser;
@@ -63,6 +64,7 @@ public class TileRegistry {
   @SubscribeEvent
   public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
     IForgeRegistry<TileEntityType<?>> r = event.getRegistry();
+    //    r.register(TileEntityType.Builder.create(TileTankHopper::new, BlockRegistry.cask_hopper).build(null).setRegistryName("cask_hopper"));
     r.register(TileEntityType.Builder.create(TileTerraPreta::new, BlockRegistry.terra_preta).build(null).setRegistryName("terra_preta"));
     r.register(TileEntityType.Builder.create(TileEye::new, BlockRegistry.eye_redstone).build(null).setRegistryName("eye_redstone"));
     r.register(TileEntityType.Builder.create(TileEyeTp::new, BlockRegistry.eye_teleport).build(null).setRegistryName("eye_teleport"));
@@ -118,6 +120,8 @@ public class TileRegistry {
     r.register(TileEntityType.Builder.create(TileWorkbench::new, BlockRegistry.workbench).build(null).setRegistryName("workbench"));
   }
 
+  @ObjectHolder(ModCyclic.MODID + ":cask_hopper")
+  public static TileEntityType<TileTankHopper> cask_hopper;
   @ObjectHolder(ModCyclic.MODID + ":eye_redstone")
   public static TileEntityType<TileEye> eye_redstone;
   @ObjectHolder(ModCyclic.MODID + ":eye_teleport")
