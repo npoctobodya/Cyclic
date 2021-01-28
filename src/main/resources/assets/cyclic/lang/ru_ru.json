@@ -1,4 +1,4 @@
-{
+﻿{
 	    "_comments": "Спасибо этому сайту https://tterrag.com/lang2json/",
 
 	    "curios.identifier.feet":"Ступни",
@@ -880,6 +880,7 @@
     "cyclic.screen.thick": "Толщина",
     "cyclic.gui.sliderkeys": "Управление стрелками; зажмите shift/alt",
     "cyclic.gui.empty":"Пусто",
+    "cyclic.gui.timer":"Задержка (тики)"	
     
     "cyclic.gui.craft.empty":"Очистить сетку",
     "cyclic.gui.craft.balance":"Сбалансировать самый большой стак",
@@ -887,7 +888,7 @@
     
     "cyclic.gui.uncrafter.config":"Заблокировано настройками",
     "cyclic.gui.uncrafter.norecipe":"Нет рецепта",
-    "cyclic.gui.uncrafter.match":"Соответствие",
+    "cyclic.gui.uncrafter.match":"Совпадение",
     
     "cyclic.screen.style0": "Нормально",
     "cyclic.screen.style1": "%",
@@ -907,7 +908,7 @@
     "block.cyclic.library_ctrl.guide": "Контроллер для Книжных полок Энда. Окружите её Книжными полками Энда чтобы распределять зачарования. Можно автоматизировать, вставляя чародейские книги и вытаскивая пустые.",
     "block.cyclic.library": "Книжная полка Энда",
     "block.cyclic.library.tooltip": "Четыре места для глубокого хранения зачарований",
-    "block.cyclic.library.guide": "Используйте чародейские книги на любом углу. Каждый угол может хранить много копий одного и того же зачарования. Используйте книгу, чтобы снять. Возьмите красный факел в руку и кликните им чтобы переключить режимы дисплея.",
+    "block.cyclic.library.guide": "Используйте чародейские книги в любом углу. Каждый угол может хранить много копий одного и того же зачарования. Используйте книгу, чтобы снять. Возьмите красный факел в руку и кликните им чтобы переключить режимы дисплея.",
  
     "block.cyclic.structure": "Строитель",
     "block.cyclic.structure.tooltip": "Автоматическое строительство простых построек",
@@ -953,7 +954,7 @@
     "cyclic.detector.compare2": "Равно",
     "cyclic.detector.compare1": "Больше",
     "cyclic.detector.compare0": "Меньше",
-    "cyclic.detector.compare.tooltip": "Сравнение с установленным количеством сущностей/предметов, нужных для активации блока",
+    "cyclic.detector.compare.tooltip": "Сравнение с установленным значением, нужного для активации блока",
     "cyclic.entitytype.players": "Игроки",
     "cyclic.entitytype.living": "Живое",
     "cyclic.entitytype.mob": "Мобы",
@@ -992,7 +993,7 @@
  
     "block.cyclic.password_block.activetype.pulse": "Импульсный",
     "block.cyclic.password_block.activetype.toggle": "Цикличный",
-    "block.cyclic.password_block.activetype.tooltip": "Переключить режим вкл./выкл. и импульсным режимом",
+    "block.cyclic.password_block.activetype.tooltip": "Переключить режим",
     "block.cyclic.password_block.guide": "Используйте его чтобы вызвать редстоун сигнал или импульс издалека",
     "block.cyclic.password_block": "Триггер Безопасности",
     "block.cyclic.password_block.tooltip": "Пароль основанный на беспроводном редстоуне",
@@ -1002,7 +1003,7 @@
     "block.cyclic.password_block.userclaim.isclaimed": "Владелец:",
     "block.cyclic.password_block.userclaim.ismine": "Владелец вы",
     "block.cyclic.password_block.userclaim.tooltip": "Только владелец блока может поменять пароль",
-    "block.cyclic.password_block.userclaim.unclaim": "Отменить заявку на владение",
+    "block.cyclic.password_block.userclaim.unclaim": "Запретить доступ",
     "block.cyclic.password_block.usersallowed.all": "Всем",
     "block.cyclic.password_block.usersallowed.me": "Мне",
     "block.cyclic.password_block.usersallowed.tooltip": "Кому можно активировать этот блок паролем",
@@ -1060,7 +1061,7 @@
     "block.cyclic.sprinkler.guide": "Работает только когда под ним есть вода. Он будет орошать ближайшие посевы, тем самым ускорять их рост. Можно использовать сразу несколько разбрызгивателей. Коснитесь ПКМ пустой рукой, чтобы отключить рендер частиц.",
     "block.cyclic.sprinkler": "Разбрызгиватель",
     "block.cyclic.sprinkler.tooltip": "Разбрызгивает воду рядом с посевами",
-    "block.cyclic.sprout.guide": "Когда собран, дропает случайный блок из таблицы (найти можно в файле конфигурации)",
+    "block.cyclic.sprout.guide": "После сбора дропает случайный блок из таблицы (найти можно в файле конфигурации)",
     "block.cyclic.sprout": "Росток Волшебных Бобов",
     "block.cyclic.tool_trade.button.tooltip": "Быстрая торговля",
     "block.cyclic.uncrafter.empty": "Пусто",
@@ -1070,7 +1071,7 @@
     "block.cyclic.uncrafter.success": "Рецепт найден",
     "block.cyclic.uncrafter.unknown": "Неизвестный рецепт",
     "block.cyclic.uncrafter.guide": "Этот блок будет искать и возвращать любой 2x2 или 3x3 рецепт из ванильного майнкрафта. Может работать неправильно или не работать вовсе с рецептами из модов.",
-    "block.cyclic.uncrafter": "Обратный Верстак",
+    "block.cyclic.uncrafter": "Измельчитель",
     "block.cyclic.uncrafter.tooltip": "Возвращает большинство рецептов",
     "block.cyclic.wireless_redstone.guide.title": "Беспроводной редстоун",
     "block.cyclic.wireless_redstone.guide": "Беспроводной Редстоун Передатчик и Приёмник позволяют вам передавать редстоун сигнал на расстоянии.$(br)Разместите Приёмник и используйте $(l:misc/location)GPS Маркер$(/l) для сохранения координат. Затем поместите маркер в Передатчик.$(br)Когда Передатчик получит редстоун сигнал, все привязанные к нему Приёмники получат сигнал той же силы.",
