@@ -23,6 +23,7 @@
  ******************************************************************************/
 package com.lothrazar.cyclic.block.crafter;
 
+import com.lothrazar.cyclic.ModCyclic;
 import com.lothrazar.cyclic.base.ContainerBase;
 import com.lothrazar.cyclic.data.Const;
 import com.lothrazar.cyclic.registry.BlockRegistry;
@@ -102,10 +103,56 @@ public class ContainerCrafter extends ContainerBase {
   }
 
   @Override
+  public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+    //30-65 is players
+    //29 is the preview slot
+    //19-28 is the right output
+    //10-18 is crafting grid
+    //0-9 is input leftc
+    int playerStart = endInv;
+    int playerEnd = endInv + PLAYERSIZE;
+    //standard logic based on start/end
+    ItemStack itemstack = ItemStack.EMPTY;
+    Slot slot = this.inventorySlots.get(index);
+    if (slot != null && slot.getHasStack()) {
+      ItemStack stack = slot.getStack();
+      itemstack = stack.copy();
+      //from output to player
+      if (index >= TileCrafter.OUTPUT_SLOT_START && index <= TileCrafter.OUTPUT_SLOT_STOP) {
+        if (!this.mergeItemStack(stack, playerStart, playerEnd, false)) {
+          return ItemStack.EMPTY;
+        }
+      }
+      //from input to player
+      if (index < TileCrafter.IO_SIZE) {
+        if (!this.mergeItemStack(stack, playerStart, playerEnd, false)) {
+          return ItemStack.EMPTY;
+        }
+      }
+      else if (index <= playerEnd && !this.mergeItemStack(stack, 0, 9, false)) {
+        ModCyclic.LOGGER.info("less than playerend and merge to self start-end");
+        return ItemStack.EMPTY;
+      }
+      if (stack.isEmpty()) {
+        slot.putStack(ItemStack.EMPTY);
+      }
+      else {
+        slot.onSlotChanged();
+      }
+      if (stack.getCount() == itemstack.getCount()) {
+        return ItemStack.EMPTY;
+      }
+      slot.onTake(playerIn, stack);
+    }
+    return itemstack;
+  }
+
+  @Override
   public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, PlayerEntity player) {
     if (slotId == TileCrafter.PREVIEW_SLOT) {
       return ItemStack.EMPTY;
     }
+    // [ 10 - 18 ]
     if (slotId >= TileCrafter.GRID_SLOT_START && slotId <= TileCrafter.GRID_SLOT_STOP) {
       ItemStack ghostStack = player.inventory.getItemStack().copy();
       ghostStack.setCount(1);
@@ -118,7 +165,11 @@ public class ContainerCrafter extends ContainerBase {
 
   @Override
   public boolean canMergeSlot(ItemStack stack, Slot slotIn) {
-    return slotIn.getSlotIndex() != TileCrafter.PREVIEW_SLOT && super.canMergeSlot(stack, slotIn);
+    // dont merge to preview
+    // dont merge to grid
+    return slotIn.getSlotIndex() != TileCrafter.PREVIEW_SLOT &&
+        !(slotIn.getSlotIndex() >= TileCrafter.GRID_SLOT_START && slotIn.getSlotIndex() <= TileCrafter.GRID_SLOT_STOP) &&
+        super.canMergeSlot(stack, slotIn);
   }
 
   @Override

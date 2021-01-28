@@ -5,6 +5,7 @@ import com.lothrazar.cyclic.base.ScreenBase;
 import com.lothrazar.cyclic.data.Const;
 import com.lothrazar.cyclic.gui.ButtonMachineRedstone;
 import com.lothrazar.cyclic.gui.EnergyBar;
+import com.lothrazar.cyclic.gui.TimerBar;
 import com.lothrazar.cyclic.registry.TextureRegistry;
 import com.lothrazar.cyclic.util.UtilChat;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -13,20 +14,23 @@ import net.minecraft.util.text.ITextComponent;
 
 public class ScreenUncraft extends ScreenBase<ContainerUncraft> {
 
+  private TimerBar timer;
   private EnergyBar energy;
   private ButtonMachineRedstone btnRedstone;
 
   public ScreenUncraft(ContainerUncraft screenContainer, PlayerInventory inv, ITextComponent titleIn) {
     super(screenContainer, inv, titleIn);
     this.energy = new EnergyBar(this, TileUncraft.MAX);
+    this.timer = new TimerBar(this, 66, 24, TileUncraft.TIMER.get());
   }
 
   @Override
   public void init() {
     super.init();
-    energy.guiLeft = guiLeft;
-    energy.guiTop = guiTop;
+    energy.guiLeft = timer.guiLeft = guiLeft;
+    energy.guiTop = timer.guiTop = guiTop;
     energy.visible = TileUncraft.POWERCONF.get() > 0;
+    timer.visible = TileUncraft.TIMER.get() > 1;
     int x, y;
     x = guiLeft + 8;
     y = guiTop + 8;
@@ -63,5 +67,6 @@ public class ScreenUncraft extends ScreenBase<ContainerUncraft> {
       this.drawSlot(ms, 7 + i * Const.SQ, 44);
       this.drawSlot(ms, 7 + i * Const.SQ, 44 + Const.SQ);
     }
+    timer.draw(ms, container.tile.getField(TileUncraft.Fields.TIMER.ordinal()));
   }
 }
