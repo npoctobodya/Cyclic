@@ -179,7 +179,7 @@
 	"gui.cyclic.flowing.east":"Восток",
 	"gui.cyclic.flowing.west":"Запад",
 	"gui.cyclic.direction0":"Вниз",
-   "gui.cyclic.direction1":"Вверх"
+  "gui.cyclic.direction1":"Вверх",
     
     "item.cyclic.build_scepter":"Строительный скипетр (заполнение)",
     "item.cyclic.offset_scepter":"Строительный скипетр (размещение)",
